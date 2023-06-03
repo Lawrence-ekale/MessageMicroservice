@@ -14,9 +14,6 @@
 	<packaging>pom</packaging>
 	<name>Messaging-microservice</name>
 	<description>Messaging microservice with gRPC</description>
-	<modules>
-		<module>proto</module>
-	</modules>
 	<properties>
 		<java.version>17</java.version>
 	</properties>

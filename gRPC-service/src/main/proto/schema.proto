@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package com.lawrenceekale;
+
+import "google/protobuf/timestamp.proto"; // Import for timestamp field
+
+
+option java_multiple_files = true;
+
+message Message {
+  int64 message_id = 1;
+  int64 senderId = 2;
+  int64 recipientId = 3;
+  string content = 4;
+  bool isRead = 5;
+  google.protobuf.Timestamp timestamp = 6; // Timestamp field
+}
+
+service MessageService {
+  rpc SendMessage(Message) returns (MessageResponse);
+  rpc GetMessageById(GetMessageByIdRequest) returns (MessageResponse);
+}
+
+message GetMessageByIdRequest {
+  int64 recipientId = 1;
+}
+
+message MessageResponse {
+  repeated Message messages = 1;
+}
